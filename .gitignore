@@ -1,0 +1,28 @@
+# Personal radar crop (paste into the radar_html config field; not part of the plugin)
+assets/radar.txt
+
+# trmnlp build output
+_build/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*~
+
+# Node (svgo tooling for the icon build)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Logs / env
+*.log
+.env
+.env.local

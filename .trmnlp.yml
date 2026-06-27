@@ -1,0 +1,12 @@
+---
+watch:
+  - src
+  - .trmnlp.yml
+
+time_zone: Europe/Amsterdam
+
+custom_fields:
+  station_id: 6280
+  show_station_name: true
+  show_time: true
+  temp_unit: c
