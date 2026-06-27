@@ -1,0 +1,30 @@
+<div class="layout px--4 flex flex--col flex--stretch-x gap--xlarge">
+
+  {% comment %} Now + Forecast (stacked) {% endcomment %}
+  <div class="flex flex--col flex--stretch-x flex--stretch-y gap--xlarge">
+
+    {% comment %} Now {% endcomment %}
+    <div class="px--2 py--6 no-shrink">
+      {% render "now_block", station: station, today: today, today_name: today_name, icon_size: 80, temp_size: "value lg:value--xlarge", desc_class: "label", temp_inline: false, unit: unit %}
+    </div>
+
+    {% comment %} Forecast {% endcomment %}
+    <div class="flex flex--col flex--stretch-x grow gap--large">
+        {% assign fdays = forecast.fivedayforecast | slice: 1, 4 %}
+        <div class="grid grid--cols-2 grow gap--large">
+          {% for day in fdays limit: 2 %}
+            {% render "forecast_card", day: day, dagen: dagen, icon_size: 48, fill: true, unit: unit %}
+          {% endfor %}
+        </div>
+        <div class="grid grid--cols-2 grow gap--large">
+          {% for day in fdays offset: 2 %}
+            {% render "forecast_card", day: day, dagen: dagen, icon_size: 48, fill: true, unit: unit %}
+          {% endfor %}
+        </div>
+      </div>
+
+  </div>
+
+</div>
+
+{% render "titlebar", station: station, show_name: show_name, show_time: show_time %}

@@ -1,0 +1,35 @@
+<div class="layout px--4 flex flex--col flex--stretch-x gap--xlarge">
+    {% comment %} Top row: Now + Forecast {% endcomment %}
+    <div class="flex flex--row portrait:flex--col portrait:flex--stretch-x gap--xlarge">
+        {% comment %} Now {% endcomment %}
+        <div class="px--2 py--6 no-shrink w--[40cqw] portrait:w--full">
+            {% render "now_block", station: station, today: today, today_name: today_name, icon_size: 80, temp_size: "value--xxlarge lg:value--xxxlarge", desc_class: "text--base", temp_inline: false, unit: unit %}
+        </div>
+        {% comment %} Forecast {% endcomment %}
+        <div class="flex flex--col flex--stretch-x grow gap--large portrait:w--full">
+        {% assign fdays = forecast.fivedayforecast | slice: 1, 4 %}
+        <div class="flex flex--row flex--stretch-y grow gap--large">
+          {% for day in fdays limit: 2 %}
+            <div class="grow">{% render "forecast_card", day: day, dagen: dagen, icon_size: 48, fill: true, unit: unit, icon_vis: "inline" %}</div>
+          {% endfor %}
+        </div>
+        <div class="flex flex--row flex--stretch-y grow gap--large">
+          {% for day in fdays offset: 2 %}
+            <div class="grow">{% render "forecast_card", day: day, dagen: dagen, icon_size: 48, fill: true, unit: unit, icon_vis: "inline" %}</div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% comment %} Bottom row: Report + Outlook {% endcomment %}
+    <div class="hidden lg:flex flex--row portrait:flex--col flex--top lg:gap--xlarge">
+        {% comment %} Report {% endcomment %}
+        <div class="px--2 no-shrink w--[40cqw] portrait:w--full">
+            {% render "text_block", heading: forecast.weatherreport.title, body: forecast.weatherreport.summary %}
+        </div>
+        {% comment %} Outlook {% endcomment %}
+        <div class="px--2 grow">
+            {% render "text_block", heading: "Verwachting", body: forecast.shortterm.forecast %}
+        </div>
+    </div>
+</div>
+{% render "titlebar", station: station, show_name: show_name, show_time: show_time %}

@@ -1,0 +1,24 @@
+<div class="layout px--4 flex flex--col flex--stretch-x gap--medium">
+
+    {% comment %} Top row: Now + Radar {% endcomment %}
+    <div class="flex flex--row flex--center-y gap--medium">
+        {% comment %} Now {% endcomment %}
+        <div class="px--2 py--4 grow">
+            {% render "now_bar", station: station, today: today, icon_size: 48, temp_size: "value lg:value--large", unit: unit %}
+        </div>
+        {% comment %} Radar (optional, from config) {% endcomment %}
+        {% if radar_html != blank %}{{ radar_html }}{% endif %}
+    </div>
+
+    {% comment %} Forecast {% endcomment %}
+    <div class="grid grid--cols-4 portrait:grid--cols-2 gap--medium">
+        {% for day in forecast.fivedayforecast offset: 1 %}
+            <div class="col">
+                {% render "forecast_card", day: day, dagen: dagen_kort, icon_size: 34, pad: "px--1 py--4", label_class: "label label--small", val_class: "value--xsmall", val_small_class: "value--xxsmall", unit: unit %}
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% render "titlebar", station: station, show_name: show_name, show_time: show_time %}

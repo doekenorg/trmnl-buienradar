@@ -1,0 +1,91 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+framework_version: 3.1.1
+serverless_language: node
+polling_url: https://data.buienradar.nl/2.0/feed/json
+polling_headers: ''
+polling_body: ''
+id: 353457
+custom_fields:
+- keyname: about
+  field_type: author_bio
+  name: About this plugin
+  category: life,personal
+  description: Buienradar Weather by Doeke Norg.
+  learn_more_url: https://doeken.org
+  email_address: mail@doeken.org
+- keyname: station_id
+  field_type: select
+  name: Weather station
+  description: Buienradar measurement station nearest you
+  options:
+  - Arnhem: 6275
+  - Berkhout: 6249
+  - De Bilt: 6260
+  - Den Helder: 6235
+  - Eindhoven: 6370
+  - Ell: 6377
+  - Gilze Rijen: 6350
+  - Groenlo-Hupsel: 6283
+  - Groningen (Eelde): 6280
+  - Heino: 6278
+  - Herwijnen: 6356
+  - Hoek van Holland: 6330
+  - Hoogeveen: 6279
+  - Hoorn Terschelling: 6251
+  - Horst: 6392
+  - Houtribdijk: 6258
+  - IJmuiden: 6225
+  - Lauwersoog: 6277
+  - Leeuwarden: 6270
+  - Lelystad: 6269
+  - Lopik-Cabauw: 6348
+  - Maastricht: 6380
+  - Marknesse: 6273
+  - Nieuw Beerta: 6286
+  - Rotterdam: 6344
+  - Rotterdam Geulhaven: 6343
+  - Schiphol: 6240
+  - Stavoren: 6267
+  - Texelhors: 6229
+  - Twente: 6290
+  - Vlieland: 6242
+  - Vlissingen: 6310
+  - Volkel: 6375
+  - Voorschoten: 6215
+  - Westdorpe: 6319
+  - Wijdenes: 6248
+  - Wijk aan Zee: 6257
+  - Woensdrecht: 6340
+  - Zeeplatform F-3: 6239
+  default: 6280
+- keyname: show_station_name
+  field_type: boolean
+  name: Show station name in footer
+  description: Include the station name in the bottom title bar
+  default: true
+- keyname: show_time
+  field_type: boolean
+  name: Show update time in footer
+  description: Include the latest measurement time in the bottom title bar
+  default: true
+- keyname: temp_unit
+  field_type: select
+  name: Temperature unit
+  description: Show temperatures in Celsius or Fahrenheit
+  options:
+  - Celsius: c
+  - Fahrenheit: f
+  default: c
+- keyname: radar_html
+  field_type: code
+  optional: true
+  rows: 3
+  name: Radar panel HTML (advanced, optional)
+  description: Custom HTML shown beside current conditions in the quadrant view. Leave blank to hide.
+name: Buienradar
+refresh_interval: 15
