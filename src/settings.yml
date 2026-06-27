@@ -18,6 +18,7 @@ custom_fields:
   description: Buienradar Weather by Doeke Norg.
   learn_more_url: https://doeken.org
   email_address: mail@doeken.org
+  github_url: https://github.com/doekenorg/trmnl-buienradar
 - keyname: station_id
   field_type: select
   name: Weather station

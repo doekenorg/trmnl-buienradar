@@ -1,6 +1,6 @@
 # Buienradar — TRMNL Plugin
 
-A private [TRMNL](https://usetrmnl.com) plugin that shows live Dutch weather from
+A [TRMNL](https://trmnl.com) plugin that shows live Dutch weather from
 [Buienradar](https://www.buienradar.nl) on an e-ink TRMNL device: current
 conditions, wind, high/low temperatures, and a 4-day forecast, drawn with custom
 monochrome weather icons. Built against TRMNL framework **v3.1.1** (plugin id `353457`).
