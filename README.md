@@ -1,5 +1,7 @@
 # Buienradar — TRMNL Plugin
 
+![Buienradar plugin on a TRMNL e-ink device](assets/preview-full.jpg)
+
 A [TRMNL](https://trmnl.com) plugin that shows live Dutch weather from
 [Buienradar](https://www.buienradar.nl) on an e-ink TRMNL device: current
 conditions, wind, high/low temperatures, and a 4-day forecast, drawn with custom
