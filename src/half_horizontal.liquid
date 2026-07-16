@@ -5,7 +5,7 @@
 
     {% comment %} Now {% endcomment %}
     <div class="px--2 py--2 lg:py--6 no-shrink w--[40cqw] flex flex--col flex--stretch-x flex--center-y">
-      {% render "now_block", station: station, today: today, today_name: today_name, icon_size: 80, temp_size: "value lg:value--xlarge", desc_class: "label", temp_inline: false, unit: unit %}
+      {% render "now_block", station: station, today: today, today_name: today_name, icon_size: 80, temp_size: "value--small lg:value--xlarge", desc_class: "label", temp_inline: false, unit: unit, range_class: "value--xsmall lg:value--base text--gray-35", range_small_class: "value--xsmall lg:value--small" %}
     </div>
 
     {% comment %} Forecast {% endcomment %}
