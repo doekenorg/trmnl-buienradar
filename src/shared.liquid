@@ -70,7 +70,7 @@
 {% assign d_idx = day.day | date: "%w" | plus: 0 %}
 {% assign d_code = day.fullIconUrl | split: "/" | last | split: "." | first | upcase %}
 <div class="bg--{{ bg | default: 'gray-70' }} rounded {{ pad | default: 'px--2 py--3' }}{% if fill %} h--full{% endif %}">
-  <div class="content flex flex--col {{ dir_class | default: 'lg:portrait:flex--row lg:portrait:flex--row.flex--between' }} flex--center-x flex--center-y text--center gap--small{% if fill %} h--full{% endif %}">
+  <div class="content flex {{ dir_class | default: 'flex--col lg:portrait:flex--row lg:portrait:flex--row.flex--between' }} flex--center-x flex--center-y text--center gap--small{% if fill %} h--full{% endif %}">
     <span class="{{ label_class | default: 'label lg:portrait:label--large' }}">{{ dagen[d_idx] }}</span>
     <div class="flex {{ group_class | default: 'flex--col lg:portrait:flex--row lg:portrait:gap--small' }} flex--center-x flex--center-y gap--small">
       <span class="{{ icon_vis | default: 'hidden lg:inline' }}">
