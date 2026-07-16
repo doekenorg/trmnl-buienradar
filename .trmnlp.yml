@@ -10,3 +10,7 @@ custom_fields:
   show_station_name: true
   show_time: true
   temp_unit: c
+  radar_html: >-
+    <div class="rounded" style="width:200px;height:170px;overflow:hidden;flex:none;"><img
+    class="image image-dither" src="https://api.buienradar.nl/image/1.0/RadarMapNL?w=550&amp;h=512"
+    style="width:1150px;height:auto;display:block;margin-left:-660px;margin-top:-260px;" /></div>
