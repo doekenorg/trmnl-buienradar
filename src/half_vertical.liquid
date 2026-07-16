@@ -13,12 +13,12 @@
         {% assign fdays = forecast.fivedayforecast | slice: 1, 4 %}
         <div class="grid grid--cols-2 lg:portrait:grid--cols-1 grow gap--large">
           {% for day in fdays limit: 2 %}
-            {% render "forecast_card", day: day, dagen: dagen, icon_size: 48, fill: true, unit: unit, pad: "px--2 py--3 lg:portrait:px--6", val_class: "value--small", val_small_class: "value--xsmall" %}
+            {% render "forecast_card", day: day, dagen: dagen, icon_size: 48, fill: true, unit: unit, pad: "px--2 py--3 lg:portrait:px--6" %}
           {% endfor %}
         </div>
         <div class="grid grid--cols-2 lg:portrait:grid--cols-1 grow gap--large">
           {% for day in fdays offset: 2 %}
-            {% render "forecast_card", day: day, dagen: dagen, icon_size: 48, fill: true, unit: unit, pad: "px--2 py--3 lg:portrait:px--6", val_class: "value--small", val_small_class: "value--xsmall" %}
+            {% render "forecast_card", day: day, dagen: dagen, icon_size: 48, fill: true, unit: unit, pad: "px--2 py--3 lg:portrait:px--6" %}
           {% endfor %}
         </div>
       </div>

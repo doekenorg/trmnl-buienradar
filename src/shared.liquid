@@ -76,7 +76,7 @@
       <span class="{{ icon_vis | default: 'hidden lg:inline' }}">
         {% render "weather_icon", code: d_code, size: icon_size %}
       </span>
-      <span class="value {{ val_class | default: 'value--small lg:portrait:value--base' }} value--tnums">{% render "temp", c: day.maxtemperature, unit: unit %} <span class="{{ icon_vis | default: 'hidden lg:inline' }}">/ <span class="{{ val_small_class | default: 'value--xsmall lg:portrait:value--small' }}">{% render "temp", c: day.mintemperature, unit: unit %}</span></span></span>
+      <span class="value {{ val_class | default: 'value--small' }} value--tnums">{% render "temp", c: day.maxtemperature, unit: unit %} <span class="{{ icon_vis | default: 'hidden lg:inline' }}">/ <span class="{{ val_small_class | default: 'text--gray-35' }}">{% render "temp", c: day.mintemperature, unit: unit %}</span></span></span>
     </div>
   </div>
 </div>
