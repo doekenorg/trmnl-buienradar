@@ -1,10 +1,10 @@
 <div class="layout px--4 flex flex--col flex--stretch-x gap--xlarge">
 
   {% comment %} Now + Forecast (stacked) {% endcomment %}
-  <div class="flex flex--col flex--stretch-x flex--evenly gap--xlarge lg:portrait:h--full lg:portrait:gap--none">
+  <div class="flex flex--col flex--stretch-x flex--evenly gap--xlarge portrait:h--full portrait:gap--none">
 
     {% comment %} Now {% endcomment %}
-    <div class="px--2 py--6 no-shrink">
+    <div class="px--2 py--2 no-shrink">
       {% render "now_block", station: station, today: today, today_name: today_name, icon_size: 80, temp_size: "value lg:value--xlarge", desc_class: "label", temp_inline: false, unit: unit %}
     </div>
 
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-    <div class="hidden lg:portrait:visible">
+    <div class="hidden portrait:visible">
       {% render "text_block", heading: "Verwachting", body: forecast.shortterm.forecast %}
     </div>
 

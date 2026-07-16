@@ -85,8 +85,8 @@
 {% comment %} text_block: heading + body paragraph. params: heading, body {% endcomment %}
 {% template text_block %}
 <div class="content flex flex--col flex--left gap--small">
-  <span class="label label--large lg:label--xlarge mb--2">{{ heading }}</span>
-  <p class="text--gray-35 text--base lg:text--large">{{ body }}</p>
+  {% if heading %}<span class="label label--large lg:label--xlarge mb--2">{{ heading }}</span>{% endif %}
+  <p class="lg:text--gray-35 text--base lg:text--large">{{ body }}</p>
 </div>
 {% endtemplate %}
 

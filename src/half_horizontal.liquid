@@ -25,6 +25,10 @@
 
   </div>
 
+  <div class="hidden portrait:visible">
+    {% render "text_block", heading: null, body: forecast.shortterm.forecast %}
+  </div>
+
 </div>
 
 {% render "titlebar", station: station, show_name: show_name, show_time: show_time %}
