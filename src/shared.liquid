@@ -25,10 +25,10 @@
 {% comment %} temp: c (celsius value), unit ("c"/"f"), with_unit (show C/F) {% endcomment %}
 {% template temp %}{% if unit == "f" %}{{ c | times: 1.8 | plus: 32 | round }}{% else %}{{ c | round }}{% endif %}&deg;{% if with_unit %}{{ unit | upcase }}{% endif %}{% endtemplate %}
 
-{% comment %} now_block: vertical current-conditions (full + halves). params: station, today, today_name, icon_size, temp_size, desc_class, temp_inline {% endcomment %}
+{% comment %} now_block: vertical current-conditions (full + halves). params: station, today, today_name, icon_size, temp_size, desc_class, temp_inline, range_class, range_small_class, day_label_class {% endcomment %}
 {% template now_block %}
 <div class="content flex flex--col flex--center-x flex--center-y text--center gap--small">
-  <span class="label label--small">Vandaag ({{ today_name }})</span>
+  <span class="{{ day_label_class | default: 'label label--base' }}">Vandaag ({{ today_name }})</span>
   {% assign now_code = station.fullIconUrl | split: "/" | last | split: "." | first | slice: 0 | upcase %}
   {% if temp_inline %}
     <div class="flex flex--row flex--center-y my--2 lg:my--4">
@@ -39,7 +39,7 @@
     {% render "weather_icon", code: now_code, size: icon_size %}
     <span class="value {{ temp_size }} value--tnums">{% render "temp", c: station.temperature, unit: unit, with_unit: true %}</span>
   {% endif %}
-  <span class="value value--small value--tnums">{% render "temp", c: today.maxtemperature, unit: unit %} / <span class="value--xsmall">{% render "temp", c: today.mintemperature, unit: unit %}</span></span>
+  <span class="value {{ range_class | default: 'value--base text--gray-35' }} value--tnums">{% render "temp", c: today.maxtemperature, unit: unit %} / <span class="{{ range_small_class | default: 'value--small' }}">{% render "temp", c: today.mintemperature, unit: unit %}</span></span>
   <span class="hidden lg:inline">
     <span class="{{ desc_class }}">{{ station.weatherdescription }}</span>
     <span class="label label--underline">Wind {{ station.winddirection }} · {{ station.windspeed }} m/s</span>
@@ -55,7 +55,7 @@
     {% render "weather_icon", code: now_code, size: icon_size %}
     <div class="flex flex--col gap--xsmall">
       <span class="value {{ temp_size }} value--tnums">{% render "temp", c: station.temperature, unit: unit, with_unit: true %}</span>
-      <span class="value value--xsmall value--tnums">{% render "temp", c: today.maxtemperature, unit: unit %} / <span class="value--xxsmall">{% render "temp", c: today.mintemperature, unit: unit %}</span></span>
+      <span class="value value--xsmall text--gray-35 value--tnums">{% render "temp", c: today.maxtemperature, unit: unit %} / <span class="value--xxsmall">{% render "temp", c: today.mintemperature, unit: unit %}</span></span>
     </div>
   </div>
   <div class="hidden lg:flex flex--col gap--xsmall">
