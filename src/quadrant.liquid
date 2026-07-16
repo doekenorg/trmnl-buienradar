@@ -7,7 +7,7 @@
             {% render "now_bar", station: station, today: today, icon_size: 48, temp_size: "value lg:value--large", unit: unit %}
         </div>
         {% comment %} Radar (optional, from config) {% endcomment %}
-        {% if radar_html != blank %}<div class="hidden lg:flex portrait:hidden">{{ radar_html }}</div>{% endif %}
+        {% if radar_html != blank %}<div class="hidden lg:block portrait:hidden lg:portrait:hidden">{{ radar_html }}</div>{% endif %}
     </div>
 
     {% comment %} Forecast {% endcomment %}
