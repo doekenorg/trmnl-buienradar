@@ -65,17 +65,19 @@
 </div>
 {% endtemplate %}
 
-{% comment %} forecast_card: one day. params: day, dagen, icon_size; optional bg, pad, label_class, val_class, val_small_class, fill {% endcomment %}
+{% comment %} forecast_card: one day. params: day, dagen, icon_size; optional bg, pad, dir_class, group_class, label_class, val_class, val_small_class, fill {% endcomment %}
 {% template forecast_card %}
 {% assign d_idx = day.day | date: "%w" | plus: 0 %}
 {% assign d_code = day.fullIconUrl | split: "/" | last | split: "." | first | upcase %}
 <div class="bg--{{ bg | default: 'gray-70' }} rounded {{ pad | default: 'px--2 py--3' }}{% if fill %} h--full{% endif %}">
-  <div class="content flex flex--col flex--center-x flex--center-y text--center gap--small{% if fill %} h--full{% endif %}">
-    <span class="{{ label_class | default: 'label' }}">{{ dagen[d_idx] }}</span>
-    <span class="{{ icon_vis | default: 'hidden lg:inline' }}">
-      {% render "weather_icon", code: d_code, size: icon_size %}
-    </span>
-    <span class="value {{ val_class | default: 'value--small' }} value--tnums">{% render "temp", c: day.maxtemperature, unit: unit %} <span class="{{ icon_vis | default: 'hidden lg:inline' }}">/ <span class="{{ val_small_class | default: 'value--xsmall' }}">{% render "temp", c: day.mintemperature, unit: unit %}</span></span></span>
+  <div class="content flex flex--col {{ dir_class | default: 'lg:portrait:flex--row lg:portrait:flex--row.flex--between' }} flex--center-x flex--center-y text--center gap--small{% if fill %} h--full{% endif %}">
+    <span class="{{ label_class | default: 'label lg:portrait:label--large' }}">{{ dagen[d_idx] }}</span>
+    <div class="flex {{ group_class | default: 'flex--col lg:portrait:flex--row lg:portrait:gap--small' }} flex--center-x flex--center-y gap--small">
+      <span class="{{ icon_vis | default: 'hidden lg:inline' }}">
+        {% render "weather_icon", code: d_code, size: icon_size %}
+      </span>
+      <span class="value {{ val_class | default: 'value--small lg:portrait:value--base' }} value--tnums">{% render "temp", c: day.maxtemperature, unit: unit %} <span class="{{ icon_vis | default: 'hidden lg:inline' }}">/ <span class="{{ val_small_class | default: 'value--xsmall lg:portrait:value--small' }}">{% render "temp", c: day.mintemperature, unit: unit %}</span></span></span>
+    </div>
   </div>
 </div>
 {% endtemplate %}
@@ -83,8 +85,8 @@
 {% comment %} text_block: heading + body paragraph. params: heading, body {% endcomment %}
 {% template text_block %}
 <div class="content flex flex--col flex--left gap--small">
-  <span class="label label--large mb--2">{{ heading }}</span>
-  <p class="text--gray-35 text--base">{{ body }}</p>
+  <span class="label label--large lg:label--xlarge mb--2">{{ heading }}</span>
+  <p class="text--gray-35 text--base lg:text--large">{{ body }}</p>
 </div>
 {% endtemplate %}
 

@@ -14,7 +14,7 @@
     <div class="grid grid--cols-4 portrait:grid--cols-2 gap--medium">
         {% for day in forecast.fivedayforecast offset: 1 %}
             <div class="col">
-                {% render "forecast_card", day: day, dagen: dagen_kort, icon_size: 34, pad: "px--1 py--4", label_class: "label label--small", val_class: "value--xsmall", val_small_class: "value--xxsmall", unit: unit %}
+                {% render "forecast_card", day: day, dagen: dagen_kort, icon_size: 34, pad: "px--1 py--4", label_class: "label label--small", val_class: "value--xsmall", val_small_class: "value--xxsmall", unit: unit, dir_class: "flex--col", group_class: "flex--col" %}
             </div>
         {% endfor %}
     </div>
