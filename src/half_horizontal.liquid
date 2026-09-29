@@ -10,7 +10,6 @@
 
     {% comment %} Forecast {% endcomment %}
     <div class="flex flex--col flex--stretch-x grow gap--large">
-      {% assign fdays = forecast.fivedayforecast | slice: 1, 4 %}
       <div class="grid grid--cols-2 lg:portrait:grid--cols-1 grow gap--large">
         {% for day in fdays limit: 2 %}
           {% render "forecast_card", day: day, dagen: dagen, icon_size: 48, fill: true, unit: unit, pad: "px--2 py--3 lg:portrait:px--6" %}
